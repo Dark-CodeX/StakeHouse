@@ -31,6 +31,5 @@ def limbo(user):
             print("Net gain on win:", (points_on_bet * target_multiplier) - points_on_bet)
         elif play == 3:
             break
-    os.system('cls' if os.name == 'nt' else 'clear')
     
     
