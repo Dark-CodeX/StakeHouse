@@ -6,6 +6,9 @@ def limbo(user):
     print("Getting ready, set your initial conditions:")
     target_multiplier = float(input("Target Multiplier: "))
     points_on_bet = float(input("Amount: "))
+    if points_on_bet > user.balance:
+        print("Amount exceded the available balance")
+        return
     print("Your win chance % is:", (1/ target_multiplier )* 100)
     print("Net gain on win:", (points_on_bet * target_multiplier) - points_on_bet)
 
@@ -15,7 +18,7 @@ def limbo(user):
         if play == 1:
             random_num = random.randint(0, int(target_multiplier) * 2)
             print(f"RESULT = {random_num}%")
-            if(random_num > target_multiplier):
+            if(random_num < target_multiplier):
                 user.balance -= points_on_bet
                 print(f"You lost!, new balance = {user.balance}")
             else:
